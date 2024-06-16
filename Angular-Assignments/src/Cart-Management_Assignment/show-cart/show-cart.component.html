@@ -1,0 +1,61 @@
+<!-- <app-cart-management (add)="AddTask($event)"></app-cart-management> -->
+<body style="height:100px">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="width: 1366px;">
+      <div class="container">
+        <a class="navbar-brand" href="#">Mobile Mart</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Cart</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <table class="table table-bordered" style="width:1000px">
+        <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Brand </th>
+              <th scope="col">Price</th>
+              <th scope="col">Image</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for(cart of carts;track $index){
+              <tr>
+                <td>{{cart.name}}</td>
+                <td>{{cart.brand}}</td>
+                <td>{{cart.price}}</td>
+                <td><img class="card-img-top" src="{{cart.image}}" alt="Card image cap" style="width:355px;height:200px"></td>
+                <td><button class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button></td>
+              </tr>
+            }
+          </tbody>
+    </table><br>
+    <div >
+        <footer  class='navbar navbar-expand-lg navbar-dark bg-dark' style="margin-top:200px">
+            <div class="container" >
+              <div class="row" >
+                <div class="col-12" >
+                  <p style="color:whitesmoke;margin-left:400px" >Copyright © MyWebsite. All rights reserved.</p>
+                </div>
+              </div>
+            </div>
+          </footer>
+    </div>
+    
+  </body>
+  <style>
+    table{
+        margin-top:10px;
+        margin-left:200px;
+    }
+  </style>
