@@ -12,7 +12,7 @@ import { ShowCartComponent } from '../Cart-Management_Assignment/show-cart/show-
   selector: 'app-root',
   standalone: true,
   imports: [TableDataComponent,ListDataComponent,UsePipePipe,ProfileBuilderComponent,CartManagementComponent,ShowCartComponent,TaskListComponent],
-  template: '<app-task-list></app-task-list>',
+  template: '<app-cart-management></app-cart-management>',
 })
 export class AppComponent {
   title = 'angular-bootstrap';
