@@ -44,20 +44,22 @@
         names.splice(a,1);
         OnSave();
     }
-    function OnFilter(){
-      filterText=document.getElementById("filterText");
-        if (!names) {
-        return [];
-        }
-        if (!filterText) {
-          return names;
-        }
-        filterText = filterText.toLowerCase;
-        names.filter(item => {
-          return item.fname.toLowerCase().includes(filterText)||item.lname.toLowerCase().includes(filterText);
-        });
-        OnSave();
-    }
+    function OnFilter() {
+      var input = document.getElementById("filterText").value.toLowerCase();
+      var names3 = names.filter((item) => {
+          return item.fname.toLowerCase().includes(input);
+      });
+
+      main = document.getElementById("main");
+      main.innerHTML = "";
+      if (names3.length === 0) {
+          main.innerHTML = "<tr><td>No results found</td></tr>";
+      } else {
+        for(var i=0;i<names3.length;i++){
+          main.innerHTML+="<tr><td>"+names3[i].fname+"</td><td>"+names3[i].lname+"</td><td>"+names3[i].company+"</td><td>"+names3[i].phone+"</td><td>"+names3[i].email+"</td><td>"+names3[i].desg+"</td><td><button style='height:30px' class='btn btn-danger' onclick='OnRemove("+i+")'><i class='bi bi-trash3-fill'></i>Remove</button></td></tr>";
+      }
+      }
+  }
   </script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

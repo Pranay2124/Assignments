@@ -1,6 +1,24 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script>
+  save={fname:"Pranay",lname:"Kadam",email:"PranayKadam@gmail.com",phone:7385029889,add:"Balkum,Thane",desc:"Developer"};
+  function OnAdd(){
+    first=document.getElementById("fname");
+    second=document.getElementById("lname");
+    email=document.getElementById("email");
+    phone=document.getElementById("phone");
+    add=document.getElementById("add");
+    desc=document.getElementById("desc");
+    save2={fname:first.value,lname:second.value,email:email.value,phone:phone.value,add:ass.value,desc:desc.value}
+    save={};
+    save.push(save2);
+    OnSave();
+  }
+</script>
+
+
 <div class="container mt-3" >
   <div style="margin-top:10px">
     <div class="col-sm-12 mx-t3 mb-4" style="margin-bottom:10px">
@@ -9,57 +27,47 @@
     <div class="row jumbotron box8" style="padding-top:5px" id="body">
       <div class="col-sm-6 form-group" id="hm">
         <label for="name-f">First Name</label>
-        <input type="text" class="form-control"  placeholder="Enter your first name." required [(ngModel)]="names.fname">
+        <input type="text" class="form-control"  placeholder="Enter your first name." required id="fname">
       </div>
       <div class="col-sm-6 form-group" id="hm">
         <label for="name-l">Last name</label>
-        <input type="text" class="form-control"  placeholder="Enter your last name." required [(ngModel)]="names.lname">
+        <input type="text" class="form-control"  placeholder="Enter your last name." required id="lname">
       </div>
       <div class="col-sm-6 form-group" id="hm">
         <label for="email">Email</label>
-        <input type="email" class="form-control"   placeholder="Enter your email." required [(ngModel)]="names.email">
+        <input type="email" class="form-control"   placeholder="Enter your email." required id="email">
       </div>
       <div class="col-sm-6 form-group" id="hm">
         <label for="tel">Phone</label>
-        <input type="tel" name="phone" class="form-control"  placeholder="Enter Your Contact Number." required [(ngModel)]="names.tel">
+        <input type="tel" name="phone" class="form-control"  placeholder="Enter Your Contact Number." required id="phone">
       </div>
       <div class="col-sm-6 form-group" id="hm">
         <label for="address-1">Address Line-1</label>
-        <input type="address" class="form-control"   placeholder="Locality/House/Street no." required [(ngModel)]="names.add">
+        <input type="address" class="form-control"   placeholder="Locality/House/Street no." required id="add">
       </div>
       <div class="col-sm-6 form-group" id="hm">
         <label for="address-2">Your Post</label>
-        <input type="address" class="form-control"   placeholder="Enter You job description" required [(ngModel)]="names.job">
+        <input type="address" class="form-control"   placeholder="Enter You job description" required id="desc">
       </div>
       <div class="col-sm-6 form-group" id="hm">
         <label for="Country">Skills</label>
-                    <div class="checkbox checkbox-inline">
-                        <input type="checkbox" class="styled" id="inlineCheckbox1" value="Developement" [(ngModel)]="skills.dev">&nbsp;
-                        <label for="inlineCheckbox1">  Developement </label>
-                    </div>
-                    <div class="checkbox checkbox-success checkbox-inline">
-                        <input type="checkbox" class="styled" id="inlineCheckbox2" value="Testing" [(ngModel)]="skills.test" >&nbsp;
-                        <label for="inlineCheckbox2">  Testing </label>
-                    </div>
-                    <div class="checkbox checkbox-inline">
-                        <input type="checkbox" class="styled" id="inlineCheckbox3" value="Database Administration" [(ngModel)]="skills.data">&nbsp;
-                        <label for="inlineCheckbox3">  Database Administation </label>
-                    </div>
+                    <ul><li><input type="checkbox" class="styled" id="inlineCheckbox1" value="Developement" >
+                      <label for="inlineCheckbox1">  Developement </label></li>
+                      <li><input type="checkbox" class="styled" id="inlineCheckbox2" value="Testing"  >
+                        <label for="inlineCheckbox2">  Testing </label></li>
+                        <li><input type="checkbox" class="styled" id="inlineCheckbox3" value="Database Administration" >&nbsp;
+                          <label for="inlineCheckbox3">  Database Administation </label></li>
+                    </ul>
       </div>
       <div class="col-sm-6 form-group" id="hm">
         <label for="lang">Languages</label>
-        <div class="checkbox checkbox-inline">
-          <input type="checkbox" class="styled" id="inlineCheckbox1" value="option1">&nbsp;
-          <label for="inlineCheckbox1">  Python </label>
-      </div>
-      <div class="checkbox checkbox-success checkbox-inline">
-          <input type="checkbox" class="styled" id="inlineCheckbox2" value="option1" >&nbsp;
-          <label for="inlineCheckbox2">  C# </label>
-      </div>
-      <div class="checkbox checkbox-inline">
-          <input type="checkbox" class="styled" id="inlineCheckbox3" value="option1">&nbsp;
-          <label for="inlineCheckbox3">  Angular </label>
-      </div>
+        <ul><li><input type="checkbox" class="styled" id="inlineCheckbox1" value="option1">&nbsp;
+          <label for="inlineCheckbox1">  Python </label></li>
+          <li><input type="checkbox" class="styled" id="inlineCheckbox2" value="option1" >&nbsp;
+            <label for="inlineCheckbox2">  C# </label></li>
+            <li><input type="checkbox" class="styled" id="inlineCheckbox3" value="option1">&nbsp;
+              <label for="inlineCheckbox3">  Angular </label></li>
+        </ul>
       </div>
       <div class="col-sm-6 form-group" id="hm">
         <label for="cod">Work Experience</label>
@@ -73,6 +81,8 @@
         <label for="cod">Projects</label>
         <input type="textarea" name="job" class="form-control" id="job" placeholder="Enter Your Projects" required>
       </div>
+        <button  class="btn btn-primary" style="width:120px;margin-left:450px" onclick="OnAdd()"><i class="bi bi-plus-lg"></i>Add</button>
+       
 
     </div>
   </div>
@@ -104,7 +114,7 @@ html,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     
       <div class="w3-white w3-text-grey w3-card-4">
         <div class="w3-display-container">
-          <h2 class="w3-text-grey w3-padding-16" style="margin-left:12px"><i class="bi bi-person-fill fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>{{names.fname+" "+names.lname}}</h2>        </div>
+          <h2 class="w3-text-grey w3-padding-16" style="margin-left:12px"><i class="bi bi-person-fill fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i></h2></div>
         <div class="w3-container">
           <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>{{names.job}}</p>
           <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>{{names.add}}</p>

@@ -42,6 +42,22 @@
         names.splice(a,1);
         OnSave();
     }
+    function OnFilter() {
+      var input = document.getElementById("search").value.toLowerCase();
+      var names3 = names.filter((item) => {
+          return item.fname.toLowerCase().includes(input);
+      });
+
+      main = document.getElementById("main");
+      main.innerHTML = "";
+      if (names3.length === 0) {
+          main.innerHTML = "<li>No results found</li>";
+      } else {
+          for (var i = 0; i < names3.length; i++) {
+              main.innerHTML += "<li><span style='font-size:20px'>Hello " + names3[i].fname + " " + names3[i].lname + ", Welcome To " + names3[i].company + ". Your Employee Id is " + names3[i].id + "</span><button style='margin-left:200px;height:30px' class='btn btn-danger' onclick='OnRemove(" + i + ")'><i class='bi bi-trash3-fill'></i>Remove</button></li>";
+          }
+      }
+  }
   </script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
