@@ -15,7 +15,7 @@
             </li>
           </ul>
           <div class="form-inline my-2 my-lg-0" style="margin-left:610px">
-            <input  type="search" placeholder="Search By Name" aria-label="Search" [(ngModel)]="filterText2">&nbsp;
+            <input  type="search" placeholder="Search By Name" aria-label="Search" [(ngModel)]="searchText2">&nbsp;
             <button class="btn btn-outline-success my-2 my-sm-0" (click)="Search1()">Search</button>
           </div>
         </div>
@@ -38,7 +38,7 @@
     <div class="container">
         <button class="btn btn-success" style="width:200px" (click)="OnSort1()"><i class="bi bi-sort-alpha-down"></i>Sort By Name</button>&nbsp;
         <button class="btn btn-success" style="width:200px" (click)="OnSort2()"><i class="bi bi-sort-numeric-down"></i>Sort By Prices</button>
-            <input  type="search" placeholder="Search By Brand" aria-label="Search" style="margin-left:430px" [(ngModel)]="filterText3">&nbsp;
+            <input  type="search" placeholder="Search By Brand" aria-label="Search" style="margin-left:430px" [(ngModel)]="searchText1">&nbsp;
             <button class="btn btn-outline-success my-2 my-sm-0" (click)="Search2()">Search</button>
     </div>
     <hr>
@@ -46,7 +46,7 @@
     <hr>
     <div class="container">
       <div class="row text-center">
-          @for(cart of carts|usePipe2:filterText1|usePipe2:filterText4;track $index){
+          @for(cart of carts|usePipe2:filter;track $index){
             <div class="col-md-4 pb-1 pb-md-0" style="margin-top:10px">
                 <div class="card">
                   <img class="card-img-top" src="{{cart.image}}" alt="Card image cap" style="width:355px;height:200px">
@@ -54,7 +54,7 @@
                     <h4 class="card-title">{{cart.name}}</h4>
                     <h5 class="card-text"><u>{{cart.brand}}</u></h5>
                     <h6 class="card-text">{{cart.price}}</h6>
-                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                    <button class="btn btn-primary" (click)="AddTask(arr)">Add to Cart</button>
                   </div>
                 </div>
               </div>

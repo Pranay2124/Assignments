@@ -1,19 +1,19 @@
-import { Component } from '@angular/core';
+import { Component,EventEmitter,Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { UsePipe2Pipe } from '../pipes/use-pipe2.pipe';
+import { UsePipe3Pipe } from '../pipes/use-pipe3.pipe';
 
 @Component({
   selector: 'app-cart-management',
   standalone: true,
-  imports: [UsePipe2Pipe,FormsModule],
+  imports: [UsePipe2Pipe,FormsModule,UsePipe3Pipe],
   templateUrl: './cart-management.component.html',
   styleUrl: './cart-management.component.css'
 })
 export class CartManagementComponent {
-  filterText2='';
-  filterText1='';
-  filterText3='';
-  filterText4='';
+  filter='';
+  searchText1='';
+  searchText2='';
   carts:any[]=[ 
   {
     image:"https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTSkckIuoWmxSbzSNOWT9soTVa-1_3mz-HX63aL6ggbsAWdti62Ha8Tl6Q2s64YP05QoYWfPijV2I2UOBkTefynmoNWPd3QXF6ZCqjWchmwTAB30mR_1-yx41FCwv_i82zRejAPKPBpzw&usqp=CAc",
@@ -77,10 +77,18 @@ export class CartManagementComponent {
   }); 
   }
   Search1(){
-    this.filterText1=this.filterText2;
+    this.filter=this.searchText2;
   }
   Search2(){
-    this.filterText4=this.filterText3;
+    this.filter=this.searchText1;
   }
-  
+  @Output() add = new EventEmitter;
+  arr:any={image:"",
+    name:"",
+    brand:"",
+    price:""} 
+  AddTask(arr:any):void{
+    this.add.emit(arr);
+    this.arr={};
+  }
 }
