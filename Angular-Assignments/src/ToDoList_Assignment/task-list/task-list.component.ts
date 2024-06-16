@@ -7,7 +7,8 @@ import { PipesExampleComponent } from '../pipes-example/pipes-example.component'
   selector: 'app-task-list',
   standalone: true,
   imports: [TaskComponent,AddtaskComponent,PipesExampleComponent],
-  templateUrl: './task-list.component.html'
+  templateUrl: './task-list.component.html',
+  styleUrl: './task-list.component.css'
 })
 export class TaskListComponent {
   tasks: any[] = [
@@ -15,26 +16,22 @@ export class TaskListComponent {
       id: 1,
       desc: 'come to office',
       priority: 2,
-      status: 'Completed',
-      class:'btn-success'
+      status: 'Completed'
     },
     {
       id: 2,
       desc: 'study angular',
       priority: 1,
-      status: 'In Progress',
-      class:'btn-warning'
+      status: 'In Progress'
     },
     {
       id: 3,
       desc: 'go home',
       priority: 3,
-      status: 'Pending',
-      class:'btn-danger'
+      status: 'Pending'
     },
   ];
   RemoveByID(tid: number):void{
-    console.log("ID removed is :" +tid);
     this.tasks = this.tasks.filter((a) => a.id != tid);
   }
   AddTask(addtask: any):void{

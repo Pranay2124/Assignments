@@ -1,13 +1,39 @@
-<div class="conainer text-center m-5">
-    <div class="row">
-        <div class="col-4">
+
+<body class="hm-gradient" style="width:1300px;margin-top:-40px">
+    <main>
+        <div class="container mt-4" style="margin-left:350px">
+
+            <div class="text-center darken-grey-text mb-4">
+                <a class="btn btn-danger btn-md" style="width:500px;background:grey;border-color:black;margin-top:30px;margin-left:-560px">To Do List<i class="fa fa-download pl-2"></i></a>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card bg-secondary form-white">
+                        <div class="card-body">
+                            <div class="container" >
             <app-addtask (add)="AddTask($event)"></app-addtask>
-            <app-pipes-example></app-pipes-example>
-        </div>
-        <div class="col-8">
-            @for (task of tasks; track task.id) {
-            <app-task-component [taskItem]="task" (hatao)="RemoveByID($event)"></app-task-component>
-            }
         </div>
     </div>
 </div>
+</div>
+</div>
+<div class="row">
+    <div class="col-md-6 mb-4">
+        <div class="card near-moon-gradient form-white">
+            <div class="card-body">
+        
+                @for (task of tasks; track task.id) {
+                            <app-task [taskItem]="task" (hatao)="RemoveByID($event)"></app-task>
+                    }
+
+
+            
+                </div>
+            </div>
+        </div>
+        </div>
+            </div>
+          
+        </main>
+      
+    </body>
